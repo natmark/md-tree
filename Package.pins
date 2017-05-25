@@ -1,0 +1,12 @@
+{
+  "autoPin": true,
+  "pins": [
+    {
+      "package": "OptionKit",
+      "reason": null,
+      "repositoryURL": "https://github.com/natmark/OptionKit.git",
+      "version": "3.0.0"
+    }
+  ],
+  "version": 1
+}
