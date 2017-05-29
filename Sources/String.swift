@@ -14,13 +14,13 @@ extension String{
             let regxp = try NSRegularExpression(
                 pattern: "(#*)\\s.*", options: [])
             let result = regxp.firstMatch(in: self, options: [], range: NSMakeRange(0, (self as NSString).length))
-            guard let headLineRange = result?.rangeAt(1) else { return -1 }
+            guard let headLineRange = result?.rangeAt(1) else { return 0 }
             
             let headLine = String(NSString(string: self).substring(with: headLineRange))!
             
             return headLine.characters.count
         } catch {
-            return -1
+            return 0
         }
     }
 }
