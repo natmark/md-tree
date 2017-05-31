@@ -63,11 +63,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-f /Users/AtsuyaSato/Desktop/portfolio.md"
+            argument = "-t -e -filename ~/Desktop/portfolio.md"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "&#x5927;&#x898b;&#x51fa;&#x3057;1 &#x4e2d;&#x898b;&#x51fa;&#x3057;2 &#x5c0f;&#x898b;&#x51fa;&#x3057;3"
+            argument = "&#x30dd;&#x30fc;&#x30c8;&#x30d5;&#x30a9;&#x30ea;&#x30aa;"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
