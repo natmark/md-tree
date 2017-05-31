@@ -9,11 +9,21 @@ enum ConsoleOption {
     var option: Option {
         switch self {
         case .file:
-            return Option(trigger: .Mixed("f", "filename"), numberOfParameters: 1, helpDescription: "Markdown file")
+            return Option(trigger: .Mixed(flag.0,flag.1), numberOfParameters: 1, helpDescription: "Markdown file")
         case .tab:
-            return Option(trigger:.Mixed("t", "tab"))
+            return Option(trigger:.Mixed(flag.0,flag.1))
         case .emptyline:
-            return Option(trigger:.Mixed("e", "emptyline"))
+            return Option(trigger:.Mixed(flag.0,flag.1))
+        }
+    }
+    var flag: (Character, String) {
+        switch self {
+        case .file:
+            return ("f", "filename")
+        case .tab:
+            return ("t", "tab")
+        case .emptyline:
+            return ("e", "emptyline")
         }
     }
 }
@@ -119,9 +129,8 @@ private func main(arguments: [String]) {
         if let filePath = options[ConsoleOption.file.option]?.first {
             let absolutePath = NSString(string: filePath).expandingTildeInPath
             let fileContent = try String(contentsOfFile: absolutePath, encoding: String.Encoding.utf8)
-
-            let filteredArgs = arguments.filter { $0 != "-t" && $0 != "-tab" }
-                                        .filter { $0 != "-e" && $0 != "-emptyline" }
+            let filteredArgs = arguments.filter { $0 != "-" + String(ConsoleOption.tab.flag.0) && $0 != "-" + ConsoleOption.tab.flag.1 }
+                                        .filter { $0 != "-" + String(ConsoleOption.emptyline.flag.0) && $0 != "-" + ConsoleOption.emptyline.flag.1 }
 
             let hierarchy = Array(filteredArgs.dropFirst(2))
             if hierarchy.count == 0 { exit(0) }
